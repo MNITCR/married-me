@@ -108,6 +108,8 @@
                             HTML;
                         }
                     ?>
+
+                    <!-- Footer table -->
                     <tr class="text-center text-xs table-row odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                         <th colspan="2" scope="col" class="whitespace-nowrap px-6 py-3" style="font-family: 'Khmer OS Battambang';">ចំនួននាក់ចូលរួមសរុប</th>
                         <th colspan="2" scope="col" class="whitespace-nowrap px-6 py-3" style="font-family: 'Khmer OS Battambang';">លុយសរុបគិតជារៀល</th>
@@ -118,7 +120,7 @@
                         <td colspan="2" class="px-6 py-3 font-bold" id="total-user"><?= $totalUsers; ?> <span style="font-family: 'Khmer OS Battambang';">នាក់</span></td>
                         <td colspan="2" class="px-6 py-3" id="total-moneyRiel"><?= $totalMoneyRiel;?> ៛</td>
                         <td colspan="3" class="px-6 py-3" id="total-moneyDollar"><?= $totalMoneyDollar; ?> $</td>
-                        <td colspan="3" id="btn-export"><i class="ri-printer-line px-6 py-3 hover:text-blue-500 transition ease-in-out cursor-pointer"></i></td>
+                        <td colspan="3"><i id="btn-export" class="ri-printer-line px-6 py-3 hover:text-blue-500 transition ease-in-out cursor-pointer"></i></td>
                     </tr>
                 </tbody>
             </table>
@@ -236,7 +238,7 @@
     </script>
     <!-- script Excel download -->
     <script src="../components/js/ExcelDownload.js"></script>
-    
+
     <!-- script close model boy -->
     <script type="text/javascript" src="../components/js/closemodelboy.js"></script>
 

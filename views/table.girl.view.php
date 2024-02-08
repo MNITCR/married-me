@@ -120,7 +120,7 @@
                         <td colspan="2" class="px-6 py-3 font-bold" id="total-user"><?= $totalUsers; ?> <span style="font-family: 'Khmer OS Battambang';">នាក់</span></td>
                         <td colspan="2" class="px-6 py-3" id="total-moneyRiel"><?= $totalMoneyRiel;?> ៛</td>
                         <td colspan="3" class="px-6 py-3" id="total-moneyDollar"><?= $totalMoneyDollar; ?> $</td>
-                        <td colspan="3" id="btn-export"><i class="ri-printer-line px-6 py-3 hover:text-blue-500 transition ease-in-out cursor-pointer"></i></td>
+                        <td colspan="3"><i id="btn-export" class="ri-printer-line px-6 py-3 hover:text-blue-500 transition ease-in-out cursor-pointer"></i></td>
                     </tr>
                 </tbody>
             </table>
