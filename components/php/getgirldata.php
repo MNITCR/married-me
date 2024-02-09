@@ -4,8 +4,6 @@
     if (isset($_GET['girl_id'])) {
         $girlId = $_GET['girl_id'];
 
-        // Implement your SQL query to fetch girl data based on girl_id
-        // Example:
         $query = "SELECT * FROM girl_tbl WHERE girl_id = $girlId";
         $result = mysqli_query($conn, $query);
 
@@ -18,4 +16,3 @@
     } else {
         echo json_encode(['error' => 'Invalid request']);
     }
-?>

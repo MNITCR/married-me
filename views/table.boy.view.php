@@ -92,7 +92,7 @@
                                         </td>
                                     </tr>
 
-                                    <!-- ុuser not found  -->
+                                    <!-- user not found  -->
                                     <tr id="messageUser" class="hidden odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                         <td colspan="10" class="text-center px-6 py-4 text-red-200">មិនមានទិន្នន័យទេ</td>
                                     </tr>
@@ -120,7 +120,7 @@
                         <td colspan="2" class="px-6 py-3 font-bold" id="total-user"><?= $totalUsers; ?> <span style="font-family: 'Khmer OS Battambang';">នាក់</span></td>
                         <td colspan="2" class="px-6 py-3" id="total-moneyRiel"><?= $totalMoneyRiel;?> ៛</td>
                         <td colspan="3" class="px-6 py-3" id="total-moneyDollar"><?= $totalMoneyDollar; ?> $</td>
-                        <td colspan="3"><i id="btn-export" class="ri-printer-line px-6 py-3 hover:text-blue-500 transition ease-in-out cursor-pointer"></i></td>
+                        <td colspan="3" ><i id="btn-export" class="ri-printer-line px-6 py-3 hover:text-blue-500 transition ease-in-out cursor-pointer"></i></td>
                     </tr>
                 </tbody>
             </table>
@@ -236,6 +236,31 @@
         document.getElementById("total-moneyRiel").innerHTML = totalMoneyRielFormatted + " ៛";
         document.getElementById("total-moneyDollar").innerHTML = totalMoneyDollarFormatted + " $";
     </script>
+
+    <script>
+        function exportToExcel(tableId) {
+            let tableData = document.getElementById(tableId).outerHTML;
+            tableData = tableData.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
+            tableData = tableData.replace(/<input[^>]*>|<\/input>/gi, ""); //remove input params
+            tableData =
+              tableData +
+              "<br /><br />Code witten By sudhir K gupta.<br />My Blog - https://comedymood.com";
+
+            let a = document.createElement("a");
+            a.href = `data:application/vnd.ms-excel, ${encodeURIComponent(
+              tableData
+            )}`;
+            a.download = "downloaded_file_" + getRandomNumbers() + ".xls";
+            a.click();
+          }
+          function getRandomNumbers() {
+            let dateObj = new Date();
+            let dateTime = `${dateObj.getHours()}${dateObj.getMinutes()}${dateObj.getSeconds()}`;
+
+            return `${dateTime}${Math.floor(Math.random().toFixed(2) * 100)}`;
+        }
+    </script>
+
     <!-- script Excel download -->
     <script src="../components/js/ExcelDownload.js"></script>
 

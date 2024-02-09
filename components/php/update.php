@@ -15,7 +15,7 @@
         elseif ($row && $fullname == $row["name"] && $phone == $row["phone"] && $password == $row["password"]) {
             echo "<script>alert('Please insert new data.');</script>";
         } else {
-            $query = "UPDATE user_tbl SET name = '$fullname', phone = '$phone', password = '$password' WHERE user_id = '$user_id'";
+            $query = "UPDATE user_tbl SET name = '$fullname', phone = '$phone', password = '$password', updated_at = now() WHERE user_id = '$user_id'";
 
             if (mysqli_query($conn, $query)) {
                 header("location: /married-me/views/table.girl.view.php");
@@ -26,4 +26,3 @@
 
         mysqli_close($conn);
     }
-?>

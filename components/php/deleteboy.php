@@ -16,4 +16,3 @@
     } else {
         echo "Invalid request method";
     }
-?>

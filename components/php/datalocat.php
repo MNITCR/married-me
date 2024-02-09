@@ -6,4 +6,3 @@
     if (!$resultLoCA) {
         die("Error: " . mysqli_error($conn));
     }
-?>

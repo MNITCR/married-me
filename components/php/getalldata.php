@@ -15,5 +15,3 @@
     } else {
         echo "Error: " . mysqli_error($conn);
     }
-
-?>

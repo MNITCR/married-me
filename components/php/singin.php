@@ -25,7 +25,7 @@
                 }
                 header("Location: /married-me/views/createboyandgirl.view.php");
             } else {
-                echo "<script>alert('Invalid login credentials');</script>";
+                echo "<script>alert('Invalid login credentials');window.location.href = '/married-me/views/singin.view.php';</script>";
             }
         } else {
             echo "Error: " . mysqli_error($conn);
@@ -33,4 +33,3 @@
     }
 
     mysqli_close($conn);
-?>

@@ -18,4 +18,3 @@
             // header("location: /married-me/views/createboyandgirl.view.php");
         }
     }
-?>

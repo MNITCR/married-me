@@ -11,7 +11,7 @@
             // Phone number already exists, show alert
             echo "<script>alert('Phone number already exists.');</script>";
         } else {
-            $query = "INSERT INTO user_tbl (name, phone, password) VALUES ('$fullname', '$phone', '$password')";
+            $query = "INSERT INTO user_tbl (name, phone, password, created_at) VALUES ('$fullname', '$phone', '$password', now())";
 
             if (mysqli_query($conn, $query)) {
                 echo "User registration successful!";
@@ -23,4 +23,3 @@
     }
 
     mysqli_close($conn);
-?>
