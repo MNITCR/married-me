@@ -32,6 +32,7 @@
             <a style="font-family: 'Kh Koulen';" href="./createboyandgirl.view.php" class="<?= $_SERVER["REQUEST_URI"] === '/married-me/views/createboyandgirl.view.php'? 'bg-gray-700' : '' ?> text-gray-300 hover:bg-gray-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium">តារាងខាងប្រុស និង ខាងស្រី</a>
             <a style="font-family: 'Kh Koulen';" href="./table.boy.view.php" class="<?= $_SERVER["REQUEST_URI"] === '/married-me/views/table.boy.view.php'? 'bg-gray-700' : '' ?> text-gray-300 hover:bg-gray-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium">បញ្ចីខាងប្រុស</a>
             <a style="font-family: 'Kh Koulen';" href="./table.girl.view.php" class="<?= $_SERVER["REQUEST_URI"] === '/married-me/views/table.girl.view.php'? 'bg-gray-700' : '' ?> text-gray-300 hover:bg-gray-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium">បញ្ចីខាងស្រី</a>
+            <a style="font-family: 'Kh Koulen';" href="./fastpay.view.php" class="<?= $_SERVER["REQUEST_URI"] === '/married-me/views/fastpay.view.php'? 'bg-gray-700' : '' ?> text-gray-300 hover:bg-gray-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium">ការទូទាត់រហ័ស</a>
           </div>
         </div>
       </div>

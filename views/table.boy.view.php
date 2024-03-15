@@ -18,7 +18,7 @@
 
     <div class="dark:bg-slate-700 flex min-h-full flex-col justify-center px-6 py-8 lg:px-8">
         <div class="relative overflow-x-hidden shadow-md sm:rounded-lg">
-            <table id="printTable" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <table id="printTable" class="printTable w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="whitespace-nowrap px-6 py-3" style="font-family: 'Khmer OS Battambang';">
@@ -120,7 +120,7 @@
                         <td colspan="2" class="px-6 py-3 font-bold" id="total-user"><?= $totalUsers; ?> <span style="font-family: 'Khmer OS Battambang';">នាក់</span></td>
                         <td colspan="2" class="px-6 py-3" id="total-moneyRiel"><?= $totalMoneyRiel;?> ៛</td>
                         <td colspan="3" class="px-6 py-3" id="total-moneyDollar"><?= $totalMoneyDollar; ?> $</td>
-                        <td colspan="3" ><i id="btn-export" class="ri-printer-line px-6 py-3 hover:text-blue-500 transition ease-in-out cursor-pointer"></i></td>
+                        <td colspan="3" ><i id="btn_export_excel" class="ri-printer-line px-6 py-3 hover:text-blue-500 transition ease-in-out cursor-pointer"></i></td>
                     </tr>
                 </tbody>
             </table>
@@ -135,8 +135,8 @@
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                        Update Information
+                    <h3 class="text-lg font-semibold text-gray-200 tracking-wide" style="font-family: Khmer OS Bokor;">
+                        ធ្វើបច្ចុប្បន្នភាពព័ត៌មាន
                     </h3>
                     <button type="button" id="btn_close_model" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -159,6 +159,7 @@
                                 <div class="mt-2">
                                     <input id="fullnameKhmer" oninput="romanizeKhmerName()" name="nameKhmer" type="text" style="font-family: 'Khmer OS Battambang';" required class="px-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
+                                <p id="KHError" class="hidden mt-2 text-sm text-red-600 dark:text-red-400" style="font-family: 'Khmer OS Battambang';font-size: 13px;"><span class="font-medium font-bold text-red-400">មានកំហុស!</span> អាចបញ្ចូលបានតែឈ្មោះខ្មែរ។</p>
                             </div>
 
                             <!-- Input name english -->
@@ -167,6 +168,7 @@
                                 <div class="mt-2">
                                     <input id="fullnameEnglish" name="nameEnglish" type="text" required class="font-mono px-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
+                                <p id="EGError" class="hidden mt-2 text-sm text-red-600 dark:text-red-400" style="font-family: 'Khmer OS Battambang';font-size: 13px;"><span class="font-medium font-bold text-red-400">មានកំហុស!</span> អាចបញ្ចូលបានតែឈ្មោះអង់គ្លេស។</p>
                             </div>
                         </div>
 
@@ -178,6 +180,7 @@
                                 <div class="mt-2">
                                     <input id="phone" name="phone" type="text" autocomplete="phone" class="px-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
+                                <p id="PHError" class="hidden mt-2 text-sm text-red-600 dark:text-red-400" style="font-family: 'Khmer OS Battambang';font-size: 13px;"><span class="font-medium font-bold text-red-400">មានកំហុស!</span> បញ្ចូលបានតែលេខក្រោម១០ខ្ទង់។</p>
                             </div>
 
                             <!-- input name money -->
@@ -187,6 +190,7 @@
                                     <input oninput="exchangeMoney()" placeholder="៛" id="moneyRiel" name="moneyRiel" type="text" required class="px-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                     <input placeholder="$" id="moneyDolar" name="moneyDolar" type="hidden" class="px-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
+                                <p id="MRError" class="hidden mt-2 text-sm text-red-600 dark:text-red-400" style="font-family: 'Khmer OS Battambang';font-size: 13px;"><span class="font-medium font-bold text-red-400">មានកំហុស!</span> អាចបញ្ចូលបានតែលេខ។</p>
                             </div>
                         </div>
 
@@ -194,16 +198,19 @@
                         <div class="">
                             <label for="location" class="dark:text-white block text-sm font-medium leading-6 text-gray-900" style="font-family: 'Khmer OS Battambang';">ទីតាំង</label>
                             <div class="mt-2">
-                                <select class="px-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" name="location" id="location" style="font-family: 'Khmer OS Battambang';">
+                                <div class="flex gap-2 flex-row">
+                                    <input type="hidden" id="LCid" name="LCid">
+                                    <input id="location" name="location" type="text" class="px-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" style="font-family: 'Khmer OS Battambang';">
+                                    <button type="button" class="px-6 rounded-md bg-indigo-600 text-white hover:bg-indigo-500 transition-all" style="font-family: 'Khmer OS Battambang';" id="create-location">បង្កើត</button>
+                                </div>
 
-                                    <!-- php get data location -->
-                                    <?php include "../components/php/connect.php" ?>
-                                    <!-- php get data location -->
-                                    <?php include "../components/php/datalocat.php" ?>
-                                    <!-- show location data -->
-                                    <?php include "../components/php/showlocation.php" ?>
+                                <p id="LCError" class="hidden mt-2 text-sm text-red-600 dark:text-red-400" style="font-family: 'Khmer OS Battambang';font-size: 13px;"><span class="font-medium font-bold text-red-400">មានកំហុស!</span> បញ្ចូលបានតែអក្សរខ្មែរ។</p>
+                                <div id="resultS" class="mt-3 text-blue-600" style="font-family: 'Khmer OS Battambang';font-size: 13px;"></div>
+                                <div id="resultF" class="mt-3 text-red-400" style="font-family: 'Khmer OS Battambang';font-size: 13px;"></div>
 
-                                </select>
+                                <div class="absolute h-[200px] w-[92.5%] overflow-y-auto space-y-1 p-2 text-left bg-gray-800 dark:text-gray-400 rounded mt-1" id="listLocation" style="display: none;">
+                                    <!-- data from database -->
+                                </div>
                             </div>
                         </div>
 
@@ -215,7 +222,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" name="updateBoy" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
+                        <button type="submit" name="updateBoy" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style="font-family: Khmer OS Battambang;">បច្ចុប្បន្នភាព</button>
                     </form>
                 </div>
             </div>
@@ -237,29 +244,14 @@
         document.getElementById("total-moneyDollar").innerHTML = totalMoneyDollarFormatted + " $";
     </script>
 
-    <script>
-        function exportToExcel(tableId) {
-            let tableData = document.getElementById(tableId).outerHTML;
-            tableData = tableData.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
-            tableData = tableData.replace(/<input[^>]*>|<\/input>/gi, ""); //remove input params
-            tableData =
-              tableData +
-              "<br /><br />Code witten By sudhir K gupta.<br />My Blog - https://comedymood.com";
+    <!-- script​ showListLocation -->
+    <script src="../components/js/createLocation.js"></script>
 
-            let a = document.createElement("a");
-            a.href = `data:application/vnd.ms-excel, ${encodeURIComponent(
-              tableData
-            )}`;
-            a.download = "downloaded_file_" + getRandomNumbers() + ".xls";
-            a.click();
-          }
-          function getRandomNumbers() {
-            let dateObj = new Date();
-            let dateTime = `${dateObj.getHours()}${dateObj.getMinutes()}${dateObj.getSeconds()}`;
+    <!-- script​ showListLocation -->
+    <script src="../components/js/showListLocation.js"></script>
 
-            return `${dateTime}${Math.floor(Math.random().toFixed(2) * 100)}`;
-        }
-    </script>
+    <!-- script Excel validation input -->
+    <script src="../components/js/ValidationCreateBoyAndGirl.js"></script>
 
     <!-- script Excel download -->
     <script src="../components/js/ExcelDownload.js"></script>

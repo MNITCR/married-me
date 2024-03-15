@@ -7,7 +7,7 @@
         $phone = $_POST['phone'];
         $riel = $_POST['moneyRiel'];
         $dolar = $_POST['moneyDolar'];
-        $locaid = $_POST['location'];
+        $locaid = $_POST['LCid'];
         $comment = $_POST['command'];
 
         $query = "UPDATE girl_tbl SET user_id = '$userId', khmername = '$khname', englishname = '$egname', phone = '$phone', moneyriel = '$riel', moneydolar = '$dolar', locaid = '$locaid', commment = '$comment', updated_at = now() WHERE girl_id = '$girlID'";

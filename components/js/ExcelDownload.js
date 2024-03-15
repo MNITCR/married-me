@@ -1,31 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const exportButton = document.getElementById("btn-export");
-
-  const table = document.getElementById("printTable");
+const exportButton = document.getElementById("btn_export_excel");
 
   exportButton.addEventListener("click", () => {
     if (confirm("Are you sure you want to export this file?")) {
-        /* Create worksheet from HTML DOM TABLE */
-        // const wb = XLSX.utils.table_to_book(table, {sheet: 'sheet-1'});
+      document
+        .getElementById("btn_export_excel")
+        .addEventListener("click", function () {
+          // Create a new workbook
+          var wb = XLSX.utils.book_new();
 
-        /* Export to file (start a download) */
-        //   XLSX.writeFile(wb, "MyTable.xlsx");
+          // Create a new worksheet
+          var ws = XLSX.utils.table_to_sheet(
+            document.getElementById("printTable")
+          );
 
+          // Add the worksheet to the workbook
+          XLSX.utils.book_append_sheet(wb, ws, "Sheet 1");
 
-        // var btnXlsx = document.querySelectorAll('.action button')[0]
-        // var btnXls = document.querySelectorAll('.action button')[1]
-        // var btnCsv = document.querySelectorAll('.action button')[2]
-
-        table.onclick = () => exportData('xlsx')
-        // btnXls.onclick = () => exportData('xls')
-        // btnCsv.onclick = () => exportData('csv')
-
-        function exportData(type){
-            const fileName = 'exported-sheet.' + type
-            const table = document.getElementById("table")
-            const wb = XLSX.utils.table_to_book(table)
-            XLSX.writeFile(wb, fileName)
-        }
+          // Save the workbook as an Excel file
+          XLSX.writeFile(wb, "exported_data.xlsx");
+        });
     }
   });
 });

@@ -61,5 +61,3 @@
 
 <!-- php footer -->
 <?php include "../components/php/footer.php" ?>
-
-

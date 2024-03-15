@@ -303,12 +303,12 @@ buttons.forEach(function (button) {
             if (xhr.responseText === "បញ្ជូនទិន្នន័យដោយជោគជ័យ!!") {
               showSuccessAlert();
               TxtSuccess.innerHTML = xhr.responseText;
-            }else if(xhr.responseText === "ទិន្នន័យនេះមានរួចហើយ។"){
-                showNotSuccessAlert();
-                TxtFail.innerHTML = xhr.responseText;
-            }else{
-                showNotSuccessAlert();
-                TxtFail.innerHTML = xhr.responseText;
+            } else if (xhr.responseText === "ទិន្នន័យនេះមានរួចហើយ។") {
+              showNotSuccessAlert();
+              TxtFail.innerHTML = xhr.responseText;
+            } else {
+              showNotSuccessAlert();
+              TxtFail.innerHTML = xhr.responseText;
             }
           } else {
             showNotSuccessAlert();

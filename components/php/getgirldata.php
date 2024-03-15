@@ -4,7 +4,11 @@
     if (isset($_GET['girl_id'])) {
         $girlId = $_GET['girl_id'];
 
-        $query = "SELECT * FROM girl_tbl WHERE girl_id = $girlId";
+        $query = "SELECT b.*, l.village AS village_name
+                    FROM girl_tbl b
+                    JOIN location_tbl l ON b.locaid = l.locaid
+                    WHERE b.girl_id = '$girlId'";
+
         $result = mysqli_query($conn, $query);
 
         if ($result && mysqli_num_rows($result) > 0) {
